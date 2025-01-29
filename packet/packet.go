@@ -25,7 +25,7 @@ func NewOracleRequestPacketData(
 // GetBytes is a helper for serialising
 func (p OracleRequestPacketData) GetBytes() []byte {
 	cdc := codec.NewProtoCodec(codectypes.NewInterfaceRegistry())
-	return sdk.MustSortJSON(cdc.MustMarshalJSON(&p))
+	return cdc.MustMarshalJSON(&p)
 }
 
 func NewOracleRequestPacketAcknowledgement(requestID uint64) *OracleRequestPacketAcknowledgement {
@@ -53,5 +53,5 @@ func NewOracleResponsePacketData(
 // GetBytes returns the bytes representation of this bandoracle response packet data.
 func (p OracleResponsePacketData) GetBytes() []byte {
 	cdc := codec.NewProtoCodec(codectypes.NewInterfaceRegistry())
-	return sdk.MustSortJSON(cdc.MustMarshalJSON(&p))
+	return cdc.MustMarshalJSON(&p)
 }
